@@ -145,3 +145,35 @@ ul.tick li:before{border-color:var(--coral-d)}
 .stats b{background:linear-gradient(100deg,#0b1437,#2f4de0);-webkit-background-clip:text;background-clip:text;color:transparent}
 .price.hi{border-color:var(--coral)}
 .card .tag{align-self:flex-start}
+
+/* Робот-помощник на первом экране */
+.vis .robot{position:absolute;right:0;bottom:0;width:min(350px,66%);height:auto;overflow:visible}
+.vis .chat{left:0;top:20px;width:min(262px,52%);z-index:2;padding:14px}
+.vis .crm{left:10px;right:auto;bottom:0;width:min(240px,48%);z-index:2;padding:14px}
+.vis .chip{right:10px;top:10px;z-index:2}
+.r-bob{animation:rbob 4s ease-in-out infinite}
+.r-wave{transform-box:fill-box;transform-origin:85% 95%;animation:rwave 1.6s ease-in-out infinite}
+.r-head{transform-box:fill-box;transform-origin:50% 100%;animation:rtilt 5s ease-in-out infinite}
+.r-eyes{transform-box:fill-box;transform-origin:50% 50%;animation:rblink 5s infinite}
+.r-glow{animation:rglow 2s ease-in-out infinite}
+.r-ant{animation:rglow 2.4s ease-in-out infinite}.r-ant.r2{animation-delay:1.2s}
+@keyframes rbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes rwave{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(14deg)}}
+@keyframes rtilt{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(2deg)}}
+@keyframes rblink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes rglow{0%,100%{opacity:1}50%{opacity:.45}}
+@media(prefers-reduced-motion:reduce){.r-bob,.r-wave,.r-head,.r-eyes,.r-glow,.r-ant{animation:none}}
+@media(max-width:900px){.vis .robot{width:min(360px,70%)}.vis .chat{width:min(280px,60%)}.vis .crm{width:min(250px,56%)}}
+.chat .b{font-size:13px;padding:8px 10px}
+
+.vis .chat{width:min(236px,46%)}
+.vis .robot{width:min(370px,70%)}
+.vis .crm{width:min(236px,46%)}
+.vis .crm .row:nth-of-type(n+3),.vis .crm>div:last-child{display:none}
+.vis .chip{right:6px;top:4px}
+@media(max-width:700px){
+.vis{min-height:0;display:flex;flex-direction:column;align-items:center;gap:14px}
+.vis .robot{position:static;width:min(300px,80%)}
+.vis .chat{position:static;width:100%;max-width:340px;order:2}
+.vis .crm,.vis .chip{display:none}
+}

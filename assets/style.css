@@ -126,3 +126,22 @@ details.more>div a:hover{background:var(--paper)}
 @keyframes blink{0%,80%,100%{opacity:.3}40%{opacity:1}}
 @media(prefers-reduced-motion:reduce){.fcard,.typing span{animation:none}}
 @media(max-width:900px){.hero2 .grid{grid-template-columns:1fr}.vis{min-height:520px}}
+/* КОРАЛЛОВЫЙ АКЦЕНТ (вариант) */
+:root{--coral:#ff6a4d;--coral-d:#e8512f}
+.btn.alt{background:var(--coral);color:#0b1437}.btn.alt:hover{background:var(--coral-d);color:#fff}
+.grad{background:linear-gradient(100deg,#2f4de0 10%,#7a4df0 55%,#ff6a4d 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo i:after{background:linear-gradient(135deg,#ff8a6b,#ff6a4d)}
+.step:before{color:#ff9a82}.light .step:before{color:var(--coral-d)}
+.step{border-top-color:#ff9a82}.light .step{border-top-color:var(--coral)}
+.chip i{background:var(--coral)}
+.pill i{background:#ffe6e0}.pill svg{stroke:#e8512f}
+.tag{background:#ffe6e0;color:#a8341a}
+.checks li:before{color:var(--coral-d)}
+ul.tick li:before{border-color:var(--coral-d)}
+.vis .bg{background:linear-gradient(145deg,#1f36b8,#4a4be8 50%,#ff6a4d 130%)}
+.cta-band{background:linear-gradient(120deg,#1f36b8,#5a4de8 55%,#ff6a4d)}
+.cta-band .btn{background:#fff;color:#0b1437}.cta-band .btn:hover{background:#ffe6e0;color:#0b1437}
+.hero2{background:radial-gradient(900px 500px at 85% 0%,#e3e6ff 0%,rgba(227,230,255,0) 60%),radial-gradient(700px 420px at 0% 100%,#ffe9e2 0%,rgba(255,233,226,0) 60%),var(--paper)}
+.stats b{background:linear-gradient(100deg,#0b1437,#2f4de0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.price.hi{border-color:var(--coral)}
+.card .tag{align-self:flex-start}

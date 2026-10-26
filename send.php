@@ -1,6 +1,6 @@
 <?php
 // Приём заявки с формы. Замените адрес получателя.
-$to = 'info@example.ru'; // TODO: ваш e-mail
+$to = 'zakaz@razrabotka-ii.ru';
 header('Content-Type: text/html; charset=utf-8');
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); exit('Метод не поддерживается'); }
 if (!empty($_POST['website'])) { exit('ok'); } // ловушка для ботов

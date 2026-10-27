@@ -212,3 +212,18 @@ ul.tick li:before{border-color:var(--coral-d)}
 .stats>div:nth-child(3) span{max-width:150px}
 .stats{gap:12px 22px;justify-content:flex-start}
 .stats>div:nth-child(3) span{max-width:210px}.stats>div:nth-child(3){flex:none}
+
+.tel{margin-left:auto;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:16px;color:var(--ink);text-decoration:none;white-space:nowrap}
+.tel:hover{color:var(--acc);text-decoration:none}
+.bar .tel+.btn{margin-left:0}
+.pic.banner{max-width:420px;margin:22px 0 8px}
+.blogpic{width:100%}
+.bar{gap:16px 18px}
+nav.main{gap:6px 16px;font-size:14.5px}
+.bar .btn{padding:0 18px;min-height:44px;font-size:15px}
+.tel{font-size:15px}
+.fgrid p a{display:inline;margin:0}
+@media(max-width:1180px){.tel svg{display:none}}
+.logo{font-size:19px}
+nav.main{font-size:14px;gap:6px 14px}
+@media(min-width:1100px){.bar{flex-wrap:nowrap}nav.main{flex:1 1 auto;min-width:0}.tel{margin-left:0}.bar .btn{white-space:nowrap}}

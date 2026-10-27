@@ -183,3 +183,10 @@ ul.tick li:before{border-color:var(--coral-d)}
 .vis .crm{left:0;bottom:0;width:min(236px,43%)}
 @media(max-width:900px){.vis .robot{width:min(310px,56%)}.vis .chat{width:min(236px,43%)}.vis .crm{width:min(236px,43%)}}
 @media(max-width:700px){.vis .robot{width:min(300px,80%)}.vis .chat{width:100%;max-width:340px}}
+/* робот крупнее слева, диалог справа */
+.vis .robot{left:0;right:auto;width:min(350px,64%)}
+.vis .chat{left:auto;right:0;top:50px;width:min(232px,42%)}
+.vis .crm{left:auto;right:0;bottom:6px;width:min(214px,40%)}
+.vis .chip{left:10px;right:auto;top:20px}
+@media(max-width:900px){.vis .robot{left:0;width:min(350px,64%)}.vis .chat{right:0;left:auto;width:min(232px,42%)}.vis .crm{right:0;left:auto;width:min(214px,40%)}}
+@media(max-width:700px){.vis .robot{left:auto;width:min(300px,80%)}.vis .chat{right:auto;width:100%;max-width:340px}}

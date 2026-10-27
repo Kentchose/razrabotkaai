@@ -199,3 +199,16 @@ ul.tick li:before{border-color:var(--coral-d)}
 @media(max-width:900px){.vis .robot{left:-10px;width:min(450px,82%)}.vis .chat{right:-6px;width:min(228px,42%)}.vis .crm{right:-6px;width:min(210px,39%)}}
 @media(max-width:700px){.vis{min-height:0}.vis .robot{left:auto;width:min(300px,80%)}.vis .chat{right:auto;width:100%;max-width:340px}}
 .card .pic{width:100%;height:auto;border-radius:12px;margin-bottom:10px;display:block}
+
+/* цифры в одну строку с иконками */
+.stats{flex-wrap:nowrap;gap:12px 18px;justify-content:space-between}
+.stats>div{min-width:0}
+.stats b{display:flex;align-items:center;gap:8px;white-space:nowrap;font-size:20px}
+.stats b svg{flex:none}
+.stats span{display:block;font-size:13px;line-height:1.35}
+@media(max-width:700px){.stats{flex-wrap:wrap;justify-content:flex-start}}
+.stats>div:nth-child(1),.stats>div:nth-child(2){flex:none}
+.stats>div:nth-child(3){flex:1 1 0;min-width:0}
+.stats>div:nth-child(3) span{max-width:150px}
+.stats{gap:12px 22px;justify-content:flex-start}
+.stats>div:nth-child(3) span{max-width:210px}.stats>div:nth-child(3){flex:none}

@@ -262,3 +262,17 @@ nav.main{font-size:14px;gap:6px 14px}
 .lab-res span{font-size:14px;color:var(--ink)}
 .lab-more{font-weight:700;font-size:14px;color:var(--acc);text-decoration:none}
 @media(max-width:900px){.lab-grid{grid-template-columns:1fr}}
+
+.lab-hero{padding-bottom:24px}
+.chips2{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 24px}
+.chip2{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;font-weight:600;color:var(--ink);text-decoration:none}
+.chip2.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.lab-grid4 .lab-card[hidden]{display:none}
+.lab-metric{background:#fff7f4;border:1px dashed #ffb9a8;border-radius:12px;padding:10px 14px;font-size:14px}
+.lab-metric b{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#c2411f;margin-bottom:2px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:20px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:4px}
+.fact span{font-size:14px;color:var(--ink2)}
+.fact i{font-style:normal;font-size:13px;color:#8b93b3;margin-top:4px}
+@media(max-width:900px){.facts{grid-template-columns:1fr}}
+.lab-grid4 .lab-res{flex:1;min-height:0}

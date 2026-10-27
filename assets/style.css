@@ -236,3 +236,11 @@ nav.main{font-size:14px;gap:6px 14px}
 .chips span{background:#e9edff;color:#1f2f8f;font-size:12.5px;font-weight:500;padding:5px 11px;border-radius:999px}
 .card .chips{min-height:62px;align-content:flex-start}
 .card .chips{min-height:72px}
+
+.sector{margin-top:22px;background:#eef2ff;border-radius:22px;padding:22px 26px;display:grid;gap:14px}
+.srow{display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px;align-items:center}
+.slabel{font-size:14px;font-weight:700;color:var(--ink2)}
+.spills{display:flex;flex-wrap:wrap;gap:8px}
+.pill-l{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 16px;font-size:14.5px;font-weight:500;color:var(--ink);text-decoration:none;transition:border-color .15s,box-shadow .15s}
+.pill-l:hover{border-color:var(--acc);box-shadow:0 4px 12px rgba(47,77,224,.14);color:var(--ink);text-decoration:none}
+@media(max-width:700px){.srow{grid-template-columns:1fr;gap:8px}.sector{padding:18px}}

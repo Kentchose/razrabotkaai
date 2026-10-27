@@ -177,3 +177,9 @@ ul.tick li:before{border-color:var(--coral-d)}
 .vis .chat{position:static;width:100%;max-width:340px;order:2}
 .vis .crm,.vis .chip{display:none}
 }
+/* чат слева от робота, рука видна */
+.vis .robot{width:min(310px,56%)}
+.vis .chat{left:0;top:40px;width:min(236px,43%)}
+.vis .crm{left:0;bottom:0;width:min(236px,43%)}
+@media(max-width:900px){.vis .robot{width:min(310px,56%)}.vis .chat{width:min(236px,43%)}.vis .crm{width:min(236px,43%)}}
+@media(max-width:700px){.vis .robot{width:min(300px,80%)}.vis .chat{width:100%;max-width:340px}}

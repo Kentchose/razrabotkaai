@@ -128,7 +128,7 @@ details.more>div a:hover{background:var(--paper)}
 @media(max-width:900px){.hero2 .grid{grid-template-columns:1fr}.vis{min-height:520px}}
 /* КОРАЛЛОВЫЙ АКЦЕНТ (вариант) */
 :root{--coral:#ff6a4d;--coral-d:#e8512f}
-.btn.alt{background:var(--coral);color:#0b1437}.btn.alt:hover{background:var(--coral-d);color:#fff}
+.btn.alt{background:var(--acc);color:#fff}.btn.alt:hover{background:var(--accd);color:#fff}
 .grad{background:linear-gradient(100deg,#2f4de0 10%,#7a4df0 55%,#ff6a4d 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .logo i:after{background:linear-gradient(135deg,#ff8a6b,#ff6a4d)}
 .step:before{color:#ff9a82}.light .step:before{color:var(--coral-d)}

@@ -314,3 +314,6 @@ nav.main{font-size:14px;gap:6px 14px}
 .about-box p{margin:0 0 10px;color:var(--ink2);max-width:980px}
 .about-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px!important}
 @media(max-width:700px){.about-box{padding:26px 20px;border-radius:24px}}
+
+.msg-note{font-size:13px;opacity:.75}
+.lead-msg{display:block;margin-top:10px;font-size:14px;color:#dbe3ff}

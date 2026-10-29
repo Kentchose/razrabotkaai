@@ -332,3 +332,7 @@ nav.main{font-size:14px;gap:6px 14px}
 .cs-ok i{background:#16b67a}.cs-warn i{background:#ffb02e}.cs-bad i{background:#e5484d}
 .cs-ok{color:#0e5a33}.cs-warn{color:#8a5a00}.cs-bad{color:#a32a2e}
 .chips2 span.chip2{cursor:default}
+
+.case-shot{margin:0}
+.case-shot img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(11,20,55,.08)}
+.case-shot figcaption{margin-top:10px;font-size:14px;color:var(--ink2)}

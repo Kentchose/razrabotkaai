@@ -41,22 +41,45 @@ KB.forEach(function(e){e.t=toks(e.k)});
 function find(q){var qt=toks(q);var best=null,bs=0;
 KB.forEach(function(e){var s=0,seen={};qt.forEach(function(w){if(!seen[w]&&e.t.indexOf(w)>-1){s++;seen[w]=1}});if(s>bs){bs=s;best=e}});
 return bs>0?best:null}
-var css=document.createElement('link');css.rel='stylesheet';css.href=U('assets/assistant.css');document.head.appendChild(css);
+var css=document.createElement('link');css.rel='stylesheet';css.href=U('assets/assistant.css?v=2');document.head.appendChild(css);
 var btn=document.createElement('button');btn.className='as-btn';btn.type='button';btn.setAttribute('aria-label','Открыть ИИ-ассистента');btn.innerHTML='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.4A8 8 0 1 1 21 12z"/></svg><span>Спросить ИИ</span>';
 var box=document.createElement('div');box.className='as-box';box.hidden=true;box.setAttribute('role','dialog');box.setAttribute('aria-label','ИИ-ассистент');
-box.innerHTML='<div class="as-head"><div><b>ИИ-ассистент</b><small>Демо: отвечает по материалам сайта</small></div><button type="button" class="as-x" aria-label="Закрыть">×</button></div><div class="as-log" aria-live="polite"></div><div class="as-chips"></div><form class="as-form"><input type="text" name="q" placeholder="Ваш вопрос" autocomplete="off" aria-label="Ваш вопрос"><button type="submit" aria-label="Отправить">→</button></form><div class="as-note">Это демонстрация: ответы берутся из материалов сайта, ваши вопросы никуда не отправляются. Для обсуждения задачи <a href="'+U('kontakty.html')+'">свяжитесь с нами</a>.</div>';
+box.innerHTML='<div class="as-head"><div><b>ИИ-ассистент</b><small>Отвечает по материалам сайта</small></div><button type="button" class="as-x" aria-label="Закрыть">×</button></div><div class="as-log" aria-live="polite"></div><div class="as-chips"></div><form class="as-form"><input type="text" name="q" placeholder="Ваш вопрос" autocomplete="off" aria-label="Ваш вопрос"><button type="submit" aria-label="Отправить">→</button></form><div class="as-note">Ответы формирует ИИ и они могут быть неточными. Не пишите в чат персональные данные: для заявки используйте форму. Подробнее: <a href="'+U('privacy.html')+'">политика</a>, <a href="'+U('kontakty.html')+'">контакты</a>.</div>';
 document.body.appendChild(btn);document.body.appendChild(box);
 var log=box.querySelector('.as-log'),chips=box.querySelector('.as-chips'),form=box.querySelector('form'),inp=form.q;
 function add(cls,html){var d=document.createElement('div');d.className='as-m '+cls;d.innerHTML=html;log.appendChild(d);log.scrollTop=log.scrollHeight;return d}
 function esc(s){return s.replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function answer(q){var e=find(q);
+var LINKS={'uslugi/index.html':'Все услуги','ceny.html':'Стоимость','process.html':'Как мы работаем','bezopasnost.html':'Безопасность','laboratoriya.html':'Лаборатория','keisy.html':'Кейсы','kontakty.html':'Контакты','faq.html':'Вопросы и ответы','ocenka.html':'Оценить процесс'};
+var hist=[],aiOk=true,busy=false;
+function localAnswer(q){var e=find(q);
 if(e){add('bot',esc(e.a)+(e.l?'<a class="as-l" href="'+U(e.l[1])+'">'+esc(e.l[0])+' →</a>':''))}
 else{add('bot','Не нашёл точного ответа в материалах сайта. Лучше задать вопрос специалисту: <a class="as-l" href="'+U('kontakty.html')+'">написать или позвонить →</a>')}}
-function ask(q){q=q.trim();if(!q)return;add('me',esc(q));setTimeout(function(){answer(q)},350)}
+function leadForm(ctx){var d=add('bot','<b>Оставить заявку</b><form class="as-lead"><input name="name" placeholder="Имя" required maxlength="100"><input name="contact" placeholder="Телефон или e-mail" required maxlength="120"><textarea name="message" placeholder="Коротко о задаче" required maxlength="1000" rows="3"></textarea><input class="as-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><label class="as-ag"><input type="checkbox" name="agree" value="1" required><span>Даю <a href="'+U('soglasie.html')+'">согласие на обработку персональных данных</a>, ознакомлен(а) с <a href="'+U('privacy.html')+'">политикой</a></span></label><button type="submit">Отправить заявку</button><div class="as-st" aria-live="polite"></div></form>');
+var f=d.querySelector('form');f.message.value=ctx||'';
+f.addEventListener('submit',function(ev){ev.preventDefault();var st=f.querySelector('.as-st'),bt=f.querySelector('button');bt.disabled=true;st.textContent='Отправляем…';
+var fd=new FormData(f);fd.set('message','Заявка из чата ИИ-ассистента: '+f.message.value);
+fetch(U('send.php'),{method:'POST',body:fd}).then(function(r){return r.text().then(function(x){return r.ok&&x.indexOf('Спасибо')>-1})}).then(function(ok){if(ok){f.innerHTML='<b>Спасибо! Заявка отправлена.</b> Мы свяжемся с вами в рабочее время.'}else{throw 0}}).catch(function(){bt.disabled=false;st.innerHTML='Не удалось отправить. Позвоните +7 (963) 778-30-43 или напишите на <a href="mailto:zakaz@razrabotka-ii.ru">zakaz@razrabotka-ii.ru</a>.'})});log.scrollTop=log.scrollHeight}
+function render(text){var lead=/\[\[LEAD\]\]/.test(text),link=(text.match(/\[\[LINK:([^\]]+)\]\]/)||[])[1];
+var clean=text.replace(/\[\[[^\]]*\]\]/g,'').trim();
+var h=esc(clean).replace(/\n/g,'<br>');
+if(link&&LINKS[link])h+='<a class="as-l" href="'+U(link)+'">'+esc(LINKS[link])+' →</a>';
+add('bot',h);if(lead)leadForm('')}
+function answer(q){
+if(!aiOk){localAnswer(q);return}
+busy=true;var typing=add('bot','<span class="as-dots"><i></i><i></i><i></i></span>');
+var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){ctl&&ctl.abort()},28000);
+hist.push({role:'user',content:q});
+fetch(U('assistant.php'),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:hist.slice(-8)}),signal:ctl?ctl.signal:undefined})
+.then(function(r){if(r.status===429){return {limit:1}}if(!r.ok)throw new Error(r.status);return r.json()})
+.then(function(j){clearTimeout(tm);typing.remove();busy=false;
+if(j.limit){add('bot','Сейчас много обращений. Позвоните нам или оставьте заявку, мы ответим лично.<a class="as-l" href="'+U('kontakty.html')+'">Контакты →</a>');return}
+hist.push({role:'assistant',content:(j.reply||'').replace(/\[\[[^\]]*\]\]/g,'').trim()});render(j.reply)})
+.catch(function(){clearTimeout(tm);typing.remove();busy=false;aiOk=false;hist.pop();localAnswer(q)})}
+function ask(q){q=q.trim();if(!q||busy)return;add('me',esc(q));answer(q)}
 CHIPS.forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent=c;b.addEventListener('click',function(){ask(c)});chips.appendChild(b)});
 form.addEventListener('submit',function(ev){ev.preventDefault();var v=inp.value;inp.value='';ask(v)});
 var first=true;
-function open(){box.hidden=false;btn.classList.add('as-hide');if(first){first=false;add('bot','Здравствуйте! Я демо-ассистент: отвечаю на вопросы об услугах, ценах, сроках и работе с данными. Выберите вопрос или напишите свой.')}setTimeout(function(){inp.focus()},50)}
+function open(){box.hidden=false;btn.classList.add('as-hide');if(first){first=false;add('bot','Здравствуйте! Я ИИ-ассистент: отвечаю на вопросы об услугах, ценах, сроках и работе с данными. Выберите вопрос или напишите свой.')}setTimeout(function(){inp.focus()},50)}
 function close(){box.hidden=true;btn.classList.remove('as-hide');btn.focus()}
 btn.addEventListener('click',open);box.querySelector('.as-x').addEventListener('click',close);
 document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&!box.hidden)close()});

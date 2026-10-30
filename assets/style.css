@@ -336,3 +336,20 @@ nav.main{font-size:14px;gap:6px 14px}
 .case-shot{margin:0}
 .case-shot img{width:100%;height:auto;display:block;border-radius:18px;border:1px solid var(--line);box-shadow:0 10px 30px rgba(11,20,55,.08)}
 .case-shot figcaption{margin-top:10px;font-size:14px;color:var(--ink2)}
+
+.kfeat{background:#fff;border:1px solid var(--line);border-radius:26px;padding:34px;box-shadow:0 10px 30px rgba(11,20,55,.05)}
+.kfeat-top{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.kfeat-top .lab-tag{margin:0}
+.kfeat h2{margin:6px 0 10px}.kfeat h2 a{color:var(--ink);text-decoration:none}.kfeat h2 a:hover{color:var(--acc)}
+.kdesc{font-size:17px;color:var(--ink2);max-width:820px;margin:0 0 22px}
+.kstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.kstrip>div{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px}
+.kstrip b{display:block;font-size:clamp(22px,2.6vw,34px);line-height:1.1;color:var(--accd);margin-bottom:6px}
+.kstrip span{font-size:14px;color:var(--ink2);line-height:1.35}
+.kshots{display:grid;grid-template-columns:1.7fr 1fr;gap:16px;margin-bottom:24px;align-items:start}
+.kshots figure{margin:0}.kshots img{width:100%;height:auto;display:block;border-radius:16px;border:1px solid var(--line)}
+.kshots figcaption{font-size:13px;color:var(--ink2);margin-top:8px}
+.kcard .tag{align-self:flex-start}
+.kmetric{display:block;font-size:13px;font-weight:700;color:var(--accd);background:#eef1ff;border-radius:10px;padding:6px 10px;margin:8px 0 4px}
+@media(max-width:860px){.kstrip{grid-template-columns:1fr 1fr}.kshots{grid-template-columns:1fr}.kfeat{padding:22px}}
+@media(max-width:480px){.kstrip{grid-template-columns:1fr}}

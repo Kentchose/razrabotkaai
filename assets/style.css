@@ -360,3 +360,4 @@ nav.main{font-size:14px;gap:6px 14px}
 .logo-mark{width:46px;height:46px;display:block;object-fit:contain}
 .logo{gap:8px}
 .logo-gr{background:linear-gradient(90deg,#16c4f0,#2f5bff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.kgrid3 .pic{height:auto;aspect-ratio:720/270;object-fit:cover;object-position:top}

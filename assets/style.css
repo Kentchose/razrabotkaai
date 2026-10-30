@@ -353,3 +353,6 @@ nav.main{font-size:14px;gap:6px 14px}
 .kmetric{display:block;font-size:13px;font-weight:700;color:var(--accd);background:#eef1ff;border-radius:10px;padding:6px 10px;margin:8px 0 4px}
 @media(max-width:860px){.kstrip{grid-template-columns:1fr 1fr}.kshots{grid-template-columns:1fr}.kfeat{padding:22px}}
 @media(max-width:480px){.kstrip{grid-template-columns:1fr}}
+
+.kgrid2{grid-template-columns:repeat(2,1fr)}@media(max-width:760px){.kgrid2{grid-template-columns:1fr}}
+.kgrid2 .pic{height:210px;object-fit:cover;object-position:top}

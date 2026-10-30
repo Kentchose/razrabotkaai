@@ -359,3 +359,4 @@ nav.main{font-size:14px;gap:6px 14px}
 .kfeat+.kfeat{margin-top:28px}.kshots.one{grid-template-columns:1fr}
 .logo-mark{width:46px;height:46px;display:block;object-fit:contain}
 .logo{gap:8px}
+.logo-gr{background:linear-gradient(90deg,#16c4f0,#2f5bff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}

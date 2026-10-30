@@ -357,3 +357,5 @@ nav.main{font-size:14px;gap:6px 14px}
 .kgrid2{grid-template-columns:repeat(2,1fr)}@media(max-width:760px){.kgrid2{grid-template-columns:1fr}}
 .kgrid2 .pic{height:210px;object-fit:cover;object-position:top}
 .kfeat+.kfeat{margin-top:28px}.kshots.one{grid-template-columns:1fr}
+.logo-mark{width:46px;height:46px;display:block;object-fit:contain}
+.logo{gap:8px}
